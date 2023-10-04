@@ -75,7 +75,6 @@ tensorboard==2.14.1
 tensorboard-data-server==0.7.1
 tensorflow==2.14.0
 tensorflow-estimator==2.14.0
-tensorflow-intel==2.14.0
 tensorflow-io-gcs-filesystem==0.31.0
 termcolor==2.3.0
 tqdm==4.66.1
@@ -86,4 +85,3 @@ uvicorn==0.23.2
 watchfiles==0.20.0
 websockets==11.0.3
 Werkzeug==2.3.7
-wrapt==1.14.1
