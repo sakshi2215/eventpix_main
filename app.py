@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, send_from_directory, jsonify
 import os
 import shutil
-from emotion_detection import predict_emotion  # Import your emotion prediction function
+# from emotion_detection import predict_emotion  # Import your emotion prediction function
 from tensorflow.keras.models import load_model
 from image_processing import process_image
 from werkzeug.utils import secure_filename
@@ -76,23 +76,23 @@ def upload_photo():
 def emotion_prediction_page():
     return render_template('emotion_prediction.html')
 
-@app.route('/detect_emotion', methods=['GET', 'POST'])
-def detect_emotion():
-    files = request.files.getlist('emotion_file')
-    for file in files:
-        if file and allowed_file(file.filename):
-            file_path = os.path.join('uploads', file.filename)
-            file.save(file_path)
+# @app.route('/detect_emotion', methods=['GET', 'POST'])
+# def detect_emotion():
+#     files = request.files.getlist('emotion_file')
+#     for file in files:
+#         if file and allowed_file(file.filename):
+#             file_path = os.path.join('uploads', file.filename)
+#             file.save(file_path)
 
-        # Perform emotion prediction
-        predicted_emotion = predict_emotion(file_path)
+#         # Perform emotion prediction
+#         predicted_emotion = predict_emotion(file_path)
 
-        if predicted_emotion:
-            flash('Predicted emotion for ' + file.filename + ': ' + predicted_emotion, 'success')
-        else:
-            flash('Unable to determine emotion for ' + file.filename, 'warning')
+#         if predicted_emotion:
+#             flash('Predicted emotion for ' + file.filename + ': ' + predicted_emotion, 'success')
+#         else:
+#             flash('Unable to determine emotion for ' + file.filename, 'warning')
 
-    return render_template('emotion_prediction.html')
+#     return render_template('emotion_prediction.html')
 
 @app.route('/blur_detection.html')
 def blur_prediction_page():
